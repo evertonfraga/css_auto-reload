@@ -23,7 +23,9 @@ StyleSheetList.prototype.reload = function reload(){
   // Reload all stylesheets
   // usage: document.styleSheets.reload()
   for (var i=0; i<this.length; i++) {
-    this[i].reload()
+	if (this[i].href != null && this[i].href.match(document.location.origin)) {
+    	this[i].reload();		
+	}
   }
 };
 
